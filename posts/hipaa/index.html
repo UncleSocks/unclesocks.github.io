@@ -82,14 +82,14 @@
 <p>As InfoSec professionals, we will primarily concern ourselves with Title II. This title includes the Administrative Simplication, Security, and Privacy Rules [<code>12</code>]. The rest of the blog post basically deep dives into Title II in the context of InfoSec.</p>
 <p>A good resource to understand HIPAA&rsquo;s Administrative Simplication Rule is Cornell Law School&rsquo;s subchapter of the Administrative Data Standards and Related Requirements, which can be accessed <a href="https://www.law.cornell.edu/cfr/text/45/chapter-A/subchapter-C"><code>here</code></a>.</p>
 <h1 id="a-deep-dive-into-the-hipaa-administrative-simplification-rules">A Deep Dive Into the HIPAA Administrative Simplification Rules</h1>
-<p>CMS defines Administrative Simplification as the set of HIPAA requirements that govern how <strong>covered entities</strong> conduct electronic, administrative transactions and set standards for transmitting PHI [<code>13</code>].</p>
+<p>CMS defines Administrative Simplification as the set of HIPAA requirements that govern how <strong>covered entities</strong> conduct electronic, administrative transactions and set standards for transmitting PHI [<code>13</code>]. The definition sheds some light on how security and privacy can come into play in HIPAA.</p>
 <h2 id="covered-entities">Covered Entities</h2>
-<p>Covered Entities are simply individuals and organizations that need to comply with HIPAA, which includes <em>health plans</em>, <em>clearninghouses</em>, and <em>health care providers</em> [<code>14</code>].</p>
+<p>Covered Entities are simply individuals and organizations that need to comply with HIPAA, which includes <strong>health plans</strong>, <strong>health care providers</strong>, and <strong>health care clearinghouses</strong> [<code>14</code>].</p>
 <p>A <a href="https://www.cms.gov/Regulations-and-Guidance/Administrative-Simplification/HIPAA-ACA/Downloads/CoveredEntitiesChart20160617.pdf"><code>Covered Entity Decision Tool</code></a>, as shown in Fig. 4 below, is provided by the CMS to help indivuals and organizations determined whether they are a covered entity [<code>15</code>].</p>
 <p><img src="../../hipaa/covered-entity-decision-tool.PNG" alt="CMS&rsquo; Covered Entity Decision Tool">
 <em>Fig. 3. CMS Covered Entity Decision Tool</em></p>
 <h3 id="health-plans">Health Plans</h3>
-<p>Health Plans are individual or group plans that provide or pay the cost of medical care, including [<code>16</code>]:</p>
+<p>Health Plans are individual or group plans that provide or pay the cost of medical care, including [<code>2</code>]:</p>
 <ul>
 <li>Health insurance companies</li>
 <li>HMOs or health maintenance oraganizations</li>
@@ -98,7 +98,7 @@
 </ul>
 <p><strong>Exception</strong>: Health plans with <em>less than 50 participants</em> and <em>administered solely by the employerer</em> is not considered a covered entity.</p>
 <h3 id="health-care-providers">Health Care Providers</h3>
-<p>Health Care Providers any person or organization that provides medical or health-related services, and furnishes, bills, or is paid for health care in the normal course of business [<code>17</code>]. A health care provider becomes a covered entity when it electronically transmits HIPAA Transactions and Code Rule Sets [<code>14</code>]. These providers include, but are not limited to:</p>
+<p>Health Care Providers any person or organization that provides medical or health-related services, and furnishes, bills, or is paid for health care in the normal course of business [<code>16</code>]. A health care provider becomes a covered entity when it electronically transmits HIPAA Transactions and Code Rule Sets [<code>14</code>]. These providers include, but are not limited to:</p>
 <ul>
 <li>Doctors</li>
 <li>Clinics</li>
@@ -108,7 +108,16 @@
 <li>Nursing homes</li>
 <li>Pharmacies</li>
 </ul>
-<h3 id="clearninghouses">Clearninghouses</h3>
+<h3 id="health-care-clearninghouses">Health Care Clearninghouses</h3>
+<p>Health Care Clearinghouses processes health information received from one entity in a nonstandard format to a standard transaction, and vice versa [<code>17</code>].</p>
+<h2 id="business-associates">Business Associates</h2>
+<p>Business Associates (BA) are essentially third-party service providers of covered entities that use or disclose identifiable PHI as part of their function, service, or activity. As a result, the Privacy Rule requires the covered entities to obtain a written <strong>Business Associate Contract</strong> containing satisfactory assurances in appropriately safeguarding the PHI the BA receives or creates on behalf of the covered entity [<code>2</code>].</p>
+<p>The HHS has a <a href="https://www.hhs.gov/sites/default/files/model-business-associate-agreement.pdf"><code>Model Business Associate Agreement</code></a> that can be used by covered entities as a contract template [<code>18</code>].</p>
+<h3 id="business-associate-contract">Business Associate Contract</h3>
+<p>The Business Associate Contract must contain elements specified in 45 CFR § 164.314(b)(2)(i):</p>
+<ul>
+<li>“Implement administrative, physical, and technical safeguards that reasonably and appropriately protect the confidentiality, integrity, and availability of the electronic protected health information that it creates, receives, maintains, or transmits on behalf of the covered entity…;”</li>
+</ul>
 <h1 id="references">References</h1>
 <ol>
 <li>CDC, Health Insurance Portability and Accountability Act of 1996 (HIPAA), cdc.gov, <a href="https://www.cdc.gov/phlp/php/resources/health-insurance-portability-and-accountability-act-of-1996-hipaa.html">https://www.cdc.gov/phlp/php/resources/health-insurance-portability-and-accountability-act-of-1996-hipaa.html</a> (accessed November 02, 2024)</li>
@@ -126,8 +135,9 @@
 <li>Centers for Medicare &amp; Medicaid Services, HIPAA Administrative Simplification Resources and FAQs, cms.gov, <a href="https://www.cms.gov/training-education/look-up-topics/hipaa-administrative-simplification-resources-and-faqs">https://www.cms.gov/training-education/look-up-topics/hipaa-administrative-simplification-resources-and-faqs</a> (accessed November 03, 2024)</li>
 <li>Centers for Medicare &amp; Medicaid Services, Are You a Covered Entity?, cms.gov, <a href="https://www.cms.gov/priorities/key-initiatives/burden-reduction/administrative-simplification/hipaa/covered-entities">https://www.cms.gov/priorities/key-initiatives/burden-reduction/administrative-simplification/hipaa/covered-entities</a> (accessed November 03, 2024)</li>
 <li>Centers for Medicare &amp; Medicaid Services, Covered Entity Decision Tool, cms.gov, <a href="https://www.cms.gov/Regulations-and-Guidance/Administrative-Simplification/HIPAA-ACA/Downloads/CoveredEntitiesChart20160617.pdf">https://www.cms.gov/Regulations-and-Guidance/Administrative-Simplification/HIPAA-ACA/Downloads/CoveredEntitiesChart20160617.pdf</a> (accessed November 03, 2024)</li>
-<li>U.S. Department of Health and Human Services, Summary of the HIPAA Privacy Rule, hhs.gov, <a href="https://www.hhs.gov/hipaa/for-professionals/privacy/laws-regulations/index.html">https://www.hhs.gov/hipaa/for-professionals/privacy/laws-regulations/index.html</a> (accessed November 03, 2024)</li>
 <li>Cornell Law School, Health care provider, law.cornell.edu, <a href="https://www.law.cornell.edu/definitions/index.php?width=840&amp;height=800&amp;iframe=true&amp;def_id=808782b490d63d2744ee5d9a1336d988&amp;term_occur=999&amp;term_src=Title:45:Chapter:A:Subchapter:C:Part:160:Subpart:A:160.103">https://www.law.cornell.edu/definitions/index.php?width=840&amp;height=800&amp;iframe=true&amp;def_id=808782b490d63d2744ee5d9a1336d988&amp;term_occur=999&amp;term_src=Title:45:Chapter:A:Subchapter:C:Part:160:Subpart:A:160.103</a> (accessed November 03, 2024)</li>
+<li>Cornell Law School, Health care clearinghouse, law.cornell.edu, <a href="https://www.law.cornell.edu/definitions/index.php?width=840&amp;height=800&amp;iframe=true&amp;def_id=8b76bcc5b120eabe975323d7896f0cf3&amp;term_occur=999&amp;term_src=Title:45:Chapter:A:Subchapter:C:Part:160:Subpart:A:160.103">https://www.law.cornell.edu/definitions/index.php?width=840&amp;height=800&amp;iframe=true&amp;def_id=8b76bcc5b120eabe975323d7896f0cf3&amp;term_occur=999&amp;term_src=Title:45:Chapter:A:Subchapter:C:Part:160:Subpart:A:160.103</a> (accessed November 03, 2024)</li>
+<li>U.S. Department of Health and Human Services, MODEL BUSINESS ASSOCIATE AGREEMENT, hhs.gov, <a href="https://www.hhs.gov/sites/default/files/model-business-associate-agreement.pdf">https://www.hhs.gov/sites/default/files/model-business-associate-agreement.pdf</a> (accessed November 03, 2024)</li>
 </ol>
 
     </div>
