@@ -6,8 +6,15 @@
     <description>Recent content in Posts on CyBlog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Dec 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 02 Nov 2024 22:30:52 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Health Insurance Portability and Accountability Act (HIPAA) of 1996: Connecting Information Security and the U.S. Healthcare</title>
+      <link>http://localhost:1313/posts/hipaa/</link>
+      <pubDate>Sat, 02 Nov 2024 22:30:52 +0800</pubDate>
+      <guid>http://localhost:1313/posts/hipaa/</guid>
+      <description>&lt;p&gt;Similar to my previous post regarding RFC 6598 and Network Address Translation (NAT), when I was still studying for my master&amp;rsquo;s degree in Information Security (InfoSec), I was tasked to present the Health Insurance Portability and Accountability Act (HIPAA) of 1996 and how it relates to InfoSec. Being in this industry we are often tasked with safeguarding sensitive personal information, and this may include personal health information (PHI). HIPAA of 1996 establishes a standard for protecting sensitive health information of patients from unauthorized disclosures [&lt;code&gt;1&lt;/code&gt;]. However, understanding HIPAA of 1996 and how to comply with it as an InfoSec professional can be daunting due to its scope and complexity. In this blog post, I will try to make HIPAA of 1996 digestible in the context of InfoSec and highlight available tools to assist professionals in their journey to compliance.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Overcoming IPv4 Private Address Overlaps in Large Business-to-Business Network Scenarios with Virtual Routing and Address Translations Using RFC 6598 Shared Address Space</title>
       <link>http://localhost:1313/posts/nat-rfc6598/</link>
