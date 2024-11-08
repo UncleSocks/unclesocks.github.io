@@ -3,7 +3,7 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Health Insurance Portability and Accountability Act (HIPAA) of 1996: Connecting Information Security and the U.S. Healthcare | CyBlog</title>
+<title>Connecting Information Security and the U.S. Healthcare: An Information Security Professional&#39;s Guide to the Health Insurance Portability and Accountability Act (HIPAA) of 1996, Title II - Administrative Simplification | CyBlog</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
@@ -41,7 +41,7 @@
         
   
   
-    <h1 class="post-title">Health Insurance Portability and Accountability Act (HIPAA) of 1996: Connecting Information Security and the U.S. Healthcare</h1>
+    <h1 class="post-title">Connecting Information Security and the U.S. Healthcare: An Information Security Professional&#39;s Guide to the Health Insurance Portability and Accountability Act (HIPAA) of 1996, Title II - Administrative Simplification</h1>
 
     
     
@@ -55,8 +55,8 @@
     <div class="post-content">
       <p>Similar to my previous post regarding RFC 6598 and Network Address Translation (NAT), when I was still studying for my master&rsquo;s degree in Information Security (InfoSec), I was tasked to present the Health Insurance Portability and Accountability Act (HIPAA) of 1996 and how it relates to InfoSec. Being in this industry we are often tasked with safeguarding sensitive personal information, and this may include protected health information (PHI). HIPAA of 1996 establishes a standard for protecting sensitive health information of patients from unauthorized disclosures [<code>1</code>]. However, understanding HIPAA of 1996 and how to comply with it as an InfoSec professional can be daunting due to its scope and complexity. In this blog post, I will try to make HIPAA of 1996 digestible and highlight available tools and resources to assist professionals in their journey to compliance. I hope this blog post can become a single-page reference or guide in understanding HIPAA in the context of InfoSec.</p>
 <h1 id="overview-of-the-hipaa-of-1996">Overview of the HIPAA of 1996</h1>
-<p>The HIPAA of 1996 (hereinafter known as &ldquo;HIPAA&rdquo;) was signed or <em>enacted</em> into Law by President Bill Clinton on August 21, 1996 [<code>2</code>]. The act became <strong>Public Law 104-191</strong>, which means it was passed during the 104th Congress with 191 as its numerical designation [<code>3</code>].</p>
-<p>In summary, according to the long title, the HIPAA of 1996 is:</p>
+<p>The HIPAA of 1996 (hereinafter known as &ldquo;HIPAA&rdquo;) was signed or <em>enacted</em> into Law by President Bill Clinton on August 21, 1996 [<code>2</code>]. The act became <strong>Public Law 104-191</strong>, which means it was passed during the 104th Congress with 191 as its numerical designation [<code>3</code>]. As previously stated, HIPAA establishes a standard for protecting sensitive health information of patients from unauthorized disclosures [<code>1</code>].</p>
+<p>Technically, according to the long title, HIPAA is:</p>
 <pre tabindex="0"><code>“An act to amend the Internal Revenue Code of 1986 to improve portability and continuity of health insurance coverage in the group and individual markets, to combat waste, fraud, and abuse in health insurance and health care delivery, to promote the use of medical savings accounts, to improve access to long-term care services and coverage, to simplify the administration of health insurance, and for other purposes.”
 </code></pre><p>At a glance, the long title does not specify anything about the security or privacy of PHI as the initial purposes of HIPAA were <strong>Portability of Health Coverage</strong> and <strong>Administrative Simplification</strong>. Over time, the act was continuously updated, including the addition of security-related rules.</p>
 <p>Under HIPAA, Title I ensures health insurance portability by providing continuous health insurance coverage for employees when in between or losing jobs. Additionally, Title 1 protects employees with pre-existing conditions from discrimination [<code>4</code>]. This blog post will not dive into Title I as it does not pertain to the security and privacy of PHI. However, the Centers for Medicare &amp; Medicaid Services (CMS) has a great resource outlining the specific circumstances to become eligible for HIPAA&rsquo;s health coverage portability, including examples [<code>5</code>].</p>
@@ -70,7 +70,7 @@
 <p><img src="../../hipaa/hipaa-nprms.png" alt="HIPAA NPRMs">
 <em>Fig. 2. HIPAA NPRMs</em></p>
 <p>On April 22, 2024, the Office for Civil Rights (OCR), issued the Final Rule for the privacy of reproductive health, entitled <strong>HIPAA Privacy Rule to Support Reproductive Health Care Privacy</strong> [<code>11</code>].</p>
-<h2 id="titles-of-hipaa">Titles of HIPAA</h2>
+<h2 id="the-titles-of-hipaa">The Titles of HIPAA</h2>
 <p>HIPAA has five (5) Titles:</p>
 <ul>
 <li>Title I - Health Care Access, Portability, and Renewability</li>
@@ -88,8 +88,8 @@
 <li>Part 164 - Security and Privacy</li>
 </ul>
 <p>A good resource to navigate through the different parts of 45 CFR Subchapter C is using <a href="https://www.law.cornell.edu/cfr/text/45/chapter-A/subchapter-C"><code>Cornell Law School's Administrative Data Standards and Related Requirements</code></a> webpage.</p>
-<h1 id="a-deep-dive-into-the-hipaa-administrative-simplification-rules">A Deep Dive Into the HIPAA Administrative Simplification Rules</h1>
-<p>CMS defines Administrative Simplification as the set of HIPAA requirements that govern how <strong>covered entities</strong> conduct electronic, administrative transactions and set standards for transmitting PHI [<code>13</code>]. The definition sheds some light on how security and privacy can come into play in HIPAA.</p>
+<h1 id="entities-required-to-comply-with-hipaa">Entities Required to Comply with HIPAA</h1>
+<p>CMS defines Administrative Simplification as the set of HIPAA requirements that govern how <strong>covered entities</strong> conduct electronic, administrative transactions and set standards for transmitting PHI [<code>13</code>]. The definition sheds some light on how security and privacy can play a role in HIPAA.</p>
 <h2 id="covered-entities">Covered Entities</h2>
 <p>Covered Entities are simply individuals and organizations that need to comply with HIPAA, which includes <strong>health plans</strong>, <strong>health care providers</strong>, and <strong>health care clearinghouses</strong> [<code>14</code>].</p>
 <p>A <a href="https://www.cms.gov/Regulations-and-Guidance/Administrative-Simplification/HIPAA-ACA/Downloads/CoveredEntitiesChart20160617.pdf"><code>Covered Entity Decision Tool</code></a>, as shown in Fig. 4 below, is provided by the CMS to help indivuals and organizations determined whether they are a covered entity [<code>15</code>].</p>
@@ -119,6 +119,63 @@
 <p>Health Care Clearinghouses processes health information received from one entity in a nonstandard format to a standard transaction, and vice versa [<code>17</code>].</p>
 <h2 id="business-associates">Business Associates</h2>
 <p>Business Associates (BA) are essentially third-party service providers of covered entities that use or disclose identifiable PHI as part of their function, service, or activity [<code>18</code>]. Under the Security Rule and Privacy Rule of HIPAA, covered entities are required to obtain written <strong>Business Associate Agreements</strong> (BAA) or contracts that provides satisfactory assurance that the BA will appropriately safeguard the PHI. This post will expand on the BAA under the Security Rule and Privacy Rule sections.</p>
+<h1 id="a-deep-dive-into-the-hipaa-administrative-simplification-rules">A Deep Dive Into the HIPAA Administrative Simplification Rules</h1>
+<p>Administrative Simplification includes the HIPAA Security Rule and Privacy Rule, as well as the Administrative Requirements. Thus, before delving into the security and privacy aspects of HIPAA, this post will first introduce <strong>45 CFR Part 162</strong>, also known as <strong>Administrative Requirements</strong> [<code>19</code>].</p>
+<h2 id="administrative-requirements">Administrative Requirements</h2>
+<p>The CMS, on behalf of the HHS, is responsible for administering and enforcing the Administrative Requirements of HIPAA but their authority does not extend to the HIPAA Security Rule and Privacy Rule [<code>20</code>]. Specifically, the CMS investigates HIPAA transaction complaints and audits:</p>
+<ul>
+<li>Standards</li>
+<li>Code Sets</li>
+<li>Unique Identifiers</li>
+<li>Operating Rules</li>
+</ul>
+<h3 id="standards">Standards</h3>
+<p>In the long title of HIPAA, two of its purposes is to combat waste and to simplify the administration of health insurance. Thus, HIPAA required HHS to adopt standard transactions for the electronic exchange of health care data, resulting in the use of consistent language, format, and code sets (discussed in the next subchapter) [<code>21, 22</code>]. A <strong>Transaction</strong> is an electronic exchange of information between entities to carry out financial or administrative activities relating to health care [<code>21</code>].</p>
+<p>Each HIPAA adopted transaction uses a specific <strong>ASC X12N - Insurance Version 5010</strong> standard for the electronic exchange of health care data (Electronic Data Interchange or EDI), as shown in TABLE 1 below [<code>22</code>]:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Transaction</th>
+          <th style="text-align: left">Standard</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Health Care Claim</td>
+          <td style="text-align: left">X12N 837</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Health Care Claim Payment Advice</td>
+          <td style="text-align: left">X12N 835</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Health Care Claim Status Request/Notification</td>
+          <td style="text-align: left">X12N 276/277</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Eligibility, Coverage, or Benefit Inquiry/Information</td>
+          <td style="text-align: left">X12N 270/271</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Benefit Enrollment and Maintenance</td>
+          <td style="text-align: left">X12N 834</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Health Care Service Review Information</td>
+          <td style="text-align: left">X12N 278</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Payment Order/Remittance Advice</td>
+          <td style="text-align: left">X12N 820</td>
+      </tr>
+  </tbody>
+</table>
+<p><em>TABLE 1. HIPAA Adopted Transactiona and X12N Standard Mapping</em></p>
+<p><em>Note:</em> This excludes retail pharmacies, which uses NCPDP Version D.0 and NCPDP Version 3.0. This post will not list these standards for simplicity since this is only meant to provide an overview [<code>23</code>].</p>
+<p>Fig. 3 below displays sample standardized transactions between providers and insurance/payors:</p>
+<p><img src="../../hipaa/hipaa-transactions.png" alt="HIPAA Transactions">
+<em>Fig. 3. HIPAA Transactions</em></p>
+<h3 id="code-sets">Code Sets</h3>
 <h1 id="references">References</h1>
 <ol>
 <li>CDC, Health Insurance Portability and Accountability Act of 1996 (HIPAA), cdc.gov, <a href="https://www.cdc.gov/phlp/php/resources/health-insurance-portability-and-accountability-act-of-1996-hipaa.html">https://www.cdc.gov/phlp/php/resources/health-insurance-portability-and-accountability-act-of-1996-hipaa.html</a> (accessed November 02, 2024)</li>
@@ -139,6 +196,11 @@
 <li>Cornell Law School, Health care provider, law.cornell.edu, <a href="https://www.law.cornell.edu/definitions/index.php?width=840&amp;height=800&amp;iframe=true&amp;def_id=808782b490d63d2744ee5d9a1336d988&amp;term_occur=999&amp;term_src=Title:45:Chapter:A:Subchapter:C:Part:160:Subpart:A:160.103">https://www.law.cornell.edu/definitions/index.php?width=840&amp;height=800&amp;iframe=true&amp;def_id=808782b490d63d2744ee5d9a1336d988&amp;term_occur=999&amp;term_src=Title:45:Chapter:A:Subchapter:C:Part:160:Subpart:A:160.103</a> (accessed November 03, 2024)</li>
 <li>Cornell Law School, Health care clearinghouse, law.cornell.edu, <a href="https://www.law.cornell.edu/definitions/index.php?width=840&amp;height=800&amp;iframe=true&amp;def_id=8b76bcc5b120eabe975323d7896f0cf3&amp;term_occur=999&amp;term_src=Title:45:Chapter:A:Subchapter:C:Part:160:Subpart:A:160.103">https://www.law.cornell.edu/definitions/index.php?width=840&amp;height=800&amp;iframe=true&amp;def_id=8b76bcc5b120eabe975323d7896f0cf3&amp;term_occur=999&amp;term_src=Title:45:Chapter:A:Subchapter:C:Part:160:Subpart:A:160.103</a> (accessed November 03, 2024)</li>
 <li>Cornell Law School, 45 CFR § 160.103 - Definitions, law.cornell.edu, <a href="https://www.law.cornell.edu/cfr/text/45/160.103">https://www.law.cornell.edu/cfr/text/45/160.103</a> (accessed November 03, 2024)</li>
+<li>Cornell Law School, 45 CFR Part 162 - PART 162—ADMINISTRATIVE REQUIREMENTS, law.cornell.edu, <a href="https://www.law.cornell.edu/cfr/text/45/part-162">https://www.law.cornell.edu/cfr/text/45/part-162</a> (accessed November 08, 2024)</li>
+<li>Centers for Medicare &amp; Medicaid Services, Enforcement and Compliance, cms.gov, <a href="https://www.cms.gov/priorities/key-initiatives/burden-reduction/administrative-simplification/enforcement">https://www.cms.gov/priorities/key-initiatives/burden-reduction/administrative-simplification/enforcement</a> (accessed November 08. 2024)</li>
+<li>Centers for Medicare &amp; Medicaid Services, Transactions Overview, cms.gov, <a href="https://www.cms.gov/priorities/key-initiatives/burden-reduction/administrative-simplification/transactions">https://www.cms.gov/priorities/key-initiatives/burden-reduction/administrative-simplification/transactions</a> (accessed November 08. 2024)</li>
+<li>Centers for Medicare &amp; Medicaid Services, Health Care Transactions Basics, cms.gov, <a href="https://www.cms.gov/files/document/health-care-transactions-basics.pdf">https://www.cms.gov/files/document/health-care-transactions-basics.pdf</a> (accessed November 08. 2024)</li>
+<li>Centers for Medicare &amp; Medicaid Services, Adopted Standards and Operating Rules. cms.gov, <a href="https://www.cms.gov/priorities/key-initiatives/burden-reduction/">https://www.cms.gov/priorities/key-initiatives/burden-reduction/</a> (accessed November 08. 2024)administrative-simplification/hipaa/adopted-standards-operating-rules</li>
 </ol>
 
     </div>
