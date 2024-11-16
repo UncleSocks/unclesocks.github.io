@@ -246,27 +246,9 @@
 <li>Genetic health information <a href="https://www.law.cornell.edu/cfr/text/45/160.103">(<code>45 CFR § 160.103</code>)</a>; or</li>
 <li>Information traceable to a patient by one or more of the HIPAA 18 identifiers</li>
 </ul>
-<p>The HHS lists 18 identifiers that can potentially identify, contact, or locate an individual [<code>30</code>]:</p>
-<ol>
-<li>Names;</li>
-<li>All geographical subdivisions smaller than a state;</li>
-<li>All elements of dates, except year, directly related to an individual;</li>
-<li>Phone numbers;</li>
-<li>Fax numbers;</li>
-<li>Electronic mail addresses;</li>
-<li>Social security numbers (SSN);</li>
-<li>Medical record numbers (MRN);</li>
-<li>Health plan beneficiary numbers;</li>
-<li>Account numbers;</li>
-<li>Certificate or license numbers;</li>
-<li>Vehicle identifiers and serial numbers, including license plate numbers;</li>
-<li>Device identifiers and serial numbers;</li>
-<li>Web Universal Resource Locators (URLs);</li>
-<li>Internet Protocol (IP) address numbers;</li>
-<li>Biometric identifiers, including finger and voice prints;</li>
-<li>Full face photographic images and any comparable images; and</li>
-<li>Any other unique identifying number, characteristic, or code</li>
-</ol>
+<p>The HHS lists 18 identifiers that can potentially identify, contact, or locate an individual, as shown in Fig. 5 below [<code>30</code>]:</p>
+<p><img src="../../hipaa/hipaa-identifiers.png" alt="18 HIPAA Identifiers">
+<em>Fig. 4. 18 Identifiers of HIPAA</em></p>
 <h4 id="de-identified-health-information">De-identified Health Information</h4>
 <p>A <strong>De-identified Health Information</strong> is a health information that does not identify and cannot be used to identify an individual [<code>31</code>]. 45 CFR § 164.514(b) outlines two methods a covered entity can use to determine whether a PHI is de-identified [<code>31</code>]:</p>
 <ol>
@@ -276,7 +258,7 @@
 </li>
 <li>
 <p>Safe Harbor</p>
-<p>Where the 18 HIPAA Identifiers (listed above) of the individual, or of relatives, employers, or household members of the individual are removed; and the covered entity does not have actual knowledge that the information could be used alone or in combination with other information to identify an individual.</p>
+<p>Where the 18 HIPAA Identifiers (listed above) of the individual, or of relatives, employers, or household members of the individual are removed; and the covered entity does not have actual knowledge that residual information could be used alone or in combination with other information to identify an individual.</p>
 </li>
 </ol>
 <p>45 CFR § 164.514(c) outlines the method covered entities can implement to re-identify the information, specifically by assigning a code or other record identification, provided that [<code>31</code>]:</p>
@@ -284,6 +266,9 @@
 <li>[Deviation] the code or other record identification was not derived from or related to the information of the individual, and cannot be translated to identify an individual &ndash; basically think of the best practices when implementing a cookie in your web applications; and</li>
 <li>[Security] the covered entity does not use or disclose the code or other record identification for other purposes beside to re-identify the information, and does not disclose the mechanism for re-identification.</li>
 </ol>
+<p>Fig. 5 below outlines the flow of the de-identification and re-identification of health information:</p>
+<p><img src="../../hipaa/de-and-re-identification.png" alt="De- and Re-identification">
+<em>Fig. 5. De- and Re-identification of PHI</em></p>
 <h4 id="permitted-use-and-disclosure">Permitted Use and Disclosure</h4>
 <h3 id="security-rule">Security Rule</h3>
 <p>The <strong>Security Rule</strong> requires that covered entities and BAs must ensure the confidentiality, integrity, and availability (CIA) of all electronic protected health information (e-PHI) they create, receive, maintain, or transmit [<code>28</code>]. Furthermore, this Rule requires that the covered entities and BAs protect the integrity or security of the e-PHI against any reasonable anticipated threats, and misuse or unauthohrized disclosures [<code>28</code>]. Lastly, ensure the compliance of their workforce with this Rule [<code>28</code>].</p>
