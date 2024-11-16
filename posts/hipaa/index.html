@@ -3,7 +3,7 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Connecting Information Security and the U.S. Healthcare: An Information Security Professional&#39;s Detailed Guide to the Health Insurance Portability and Accountability Act (HIPAA) of 1996, Title II - Administrative Simplification | CyBlog</title>
+<title>Connecting Information Security and the U.S. Healthcare: An Information Security Professional&#39;s Detailed Guide and Review to the Health Insurance Portability and Accountability Act (HIPAA) of 1996, Title II - Administrative Simplification | CyBlog</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
@@ -41,7 +41,7 @@
         
   
   
-    <h1 class="post-title">Connecting Information Security and the U.S. Healthcare: An Information Security Professional&#39;s Detailed Guide to the Health Insurance Portability and Accountability Act (HIPAA) of 1996, Title II - Administrative Simplification</h1>
+    <h1 class="post-title">Connecting Information Security and the U.S. Healthcare: An Information Security Professional&#39;s Detailed Guide and Review to the Health Insurance Portability and Accountability Act (HIPAA) of 1996, Title II - Administrative Simplification</h1>
 
     
     
@@ -120,18 +120,17 @@
 <h2 id="business-associates">Business Associates</h2>
 <p>Business Associates (BA) are essentially third-party service providers of covered entities that use or disclose identifiable PHI as part of their function, service, or activity [<code>18</code>]. Under the Security Rule and Privacy Rule of HIPAA, covered entities are required to obtain written <strong>Business Associate Agreements</strong> (BAA) or contracts that provides satisfactory assurance that the BA will appropriately safeguard the PHI. This post will expand on the BAA under the Security Rule and Privacy Rule sections.</p>
 <h1 id="a-deep-dive-into-the-hipaa-administrative-simplification-rules">A Deep Dive Into the HIPAA Administrative Simplification Rules</h1>
-<p>Administrative Simplification includes the HIPAA Security Rule and Privacy Rule, as well as the Administrative Requirements. Thus, before delving into the security and privacy aspects of HIPAA, this post will first introduce <strong>45 CFR Part 162</strong>, also known as <strong>Administrative Requirements</strong> [<code>19</code>].</p>
+<p>Originally, HHS initiated five rules to enforce Administrative Simplification: Transaction and Code Sets Rule, Privacy Rule, Security Rule, Unique Identifiers Rule, and Enforcement Rule [<code>19</code>]. In 2009, the Breach Notification Rule was added as part of the <strong>Health Information Technology for Economic and Clinical Health (HITECH) Act</strong>. Thus, before delving into the security and privacy aspects of HIPAA, this post will first introduce <strong>45 CFR Part 162</strong>, also known as <strong>Administrative Requirements</strong> [<code>20</code>]. The Administrative Requirements include the Transaction and Code Sets Rule, and Unique Identifiers Rule.</p>
 <h2 id="administrative-requirements">Administrative Requirements</h2>
-<p>The CMS, on behalf of the HHS, is responsible for administering and enforcing the Administrative Requirements of HIPAA but their authority does not extend to the HIPAA Security Rule and Privacy Rule [<code>20</code>]. Specifically, the CMS investigates HIPAA transaction complaints and audits:</p>
+<p>The CMS, on behalf of the HHS, is responsible for administering and enforcing the Administrative Requirements of HIPAA but their authority does not extend to the HIPAA Security Rule and Privacy Rule [<code>21</code>]. Specifically, the CMS investigates HIPAA transaction complaints and audits:</p>
 <ul>
-<li>Standards</li>
+<li>Transactions (Standards)</li>
 <li>Code Sets</li>
 <li>Unique Identifiers</li>
-<li>Operating Rules</li>
 </ul>
-<h3 id="standards">Standards</h3>
-<p>In the long title of HIPAA, two of its purposes is to combat waste and to simplify the administration of health insurance. Thus, HIPAA required HHS to adopt standard transactions for the electronic exchange of health care data, resulting in the use of consistent language, format, and code sets (discussed in the next subchapter) [<code>21, 22</code>]. A <strong>Transaction</strong> is an electronic exchange of information between entities to carry out financial or administrative activities relating to health care [<code>21</code>].</p>
-<p>Each HIPAA adopted transaction uses a specific <strong>ASC X12N - Insurance Version 5010</strong> standard for the electronic exchange of health care data (Electronic Data Interchange or EDI), as shown in TABLE 1 below [<code>22</code>]:</p>
+<h3 id="transactions-standards">Transactions (Standards)</h3>
+<p>In the long title of HIPAA, two of its purposes is to combat waste and to simplify the administration of health insurance. Thus, HIPAA required HHS to adopt standard transactions for the electronic exchange of health care data, resulting in the use of consistent language, format, and code sets (discussed in the next subchapter) [<code>22, 23</code>]. A <strong>Transaction</strong> is an electronic exchange of information between entities to carry out financial or administrative activities relating to health care [<code>22</code>].</p>
+<p>Each HIPAA adopted transaction uses a specific <strong>ASC X12N - Insurance Version 5010</strong> standard for the electronic exchange of health care data (Electronic Data Interchange or EDI), as shown in TABLE 1 below [<code>23</code>]:</p>
 <table>
   <thead>
       <tr>
@@ -171,19 +170,19 @@
   </tbody>
 </table>
 <p><em>TABLE 1. HIPAA Adopted Transactiona and X12N Standard Mapping</em></p>
-<p><em>Note:</em> This excludes retail pharmacies, which uses NCPDP Version D.0 and NCPDP Version 3.0. This post will not list these standards for simplicity since this is only meant to provide an overview [<code>23</code>].</p>
+<p><em>Note:</em> This excludes retail pharmacies, which uses NCPDP Version D.0 and NCPDP Version 3.0. This post will not list these standards for simplicity since this is only meant to provide an overview [<code>24</code>].</p>
 <p>Fig. 3 below displays sample standardized transactions between providers and insurance/payors:</p>
 <p><img src="../../hipaa/hipaa-transactions.png" alt="HIPAA Transactions">
 <em>Fig. 3. HIPAA Transactions</em></p>
 <p>A great infographic from CMS regarding Health Care Transaction Basics can be accessed <a href="https://www.cms.gov/files/document/health-care-transactions-basics.pdf"><code>here</code></a>.</p>
 <h3 id="code-sets">Code Sets</h3>
-<p>Code Sets are shared list of codes that simplifies longer names or explanations, resulting in faster information format translations [<code>24</code>]. Additionaly, specific code sets are adopted by the HHS for its electronic health care transactions, which are used in different health care functions [<code>24</code>]:</p>
+<p>Code Sets are shared list of codes that simplifies longer names or explanations, resulting in faster information format translations [<code>25</code>]. Additionaly, specific code sets are adopted by the HHS for its electronic health care transactions, which are used in different health care functions [<code>24</code>]:</p>
 <ul>
 <li>Billing</li>
 <li>Tracking Public Health Trends</li>
 <li>Research</li>
 </ul>
-<p>TABLE 2 outlines some of health care activities found in standard transactions and their respective identifying code sets [<code>24</code>]:</p>
+<p>TABLE 2 outlines some of health care activities found in standard transactions and their respective identifying code sets [<code>25</code>]:</p>
 <table>
   <thead>
       <tr>
@@ -217,16 +216,77 @@
 <p><em>TABLE 2. Health Care Activity and Adopted Code Set Mapping</em></p>
 <p>Another great infographic from CMS about Code Set Basics can be found <a href="https://www.cms.gov/files/document/code-sets.pdf"><code>here</code></a>.</p>
 <h3 id="unique-identifiers">Unique Identifiers</h3>
-<p>HIPAA has set unique identifiers for employers and providers, which must be used on all HIPAA transactions [<code>25</code>]. Employers are required to have an Internal Revenue Service (IRS)-issued <strong>Employer Identification Number (EIN)</strong> [<code>25</code>]. Providers must use a unique 10-digit <strong>National Provider Identifier (NPI)</strong> [<code>25</code>]. At the time of writing, no identifiers are adopted for health plans and patients [<code>25</code>].</p>
-<h3 id="operating-rules">Operating Rules</h3>
-<p>According to CMS [<code>26</code>], Operating Rules specify the required information for standard transactions. Unlike the previous sections, the authority entity for the operating rules is the <strong>CAQH CORE</strong> [<code>26</code>].</p>
+<p>HIPAA has set unique identifiers for employers and providers, which must be used on all HIPAA transactions [<code>26</code>]. Employers are required to have an Internal Revenue Service (IRS)-issued <strong>Employer Identification Number (EIN)</strong> [<code>25</code>]. Providers must use a unique 10-digit <strong>National Provider Identifier (NPI)</strong> [<code>26</code>]. At the time of writing, no identifiers are adopted for health plans and patients [<code>26</code>].</p>
 <h2 id="security-and-privacy">Security and Privacy</h2>
-<p>Now that the Administrative Requirements are out of the way (phew!), the rest of the post will focus on the security and privacy aspect of HIPAA under <strong>45 CFR Part 164</strong>, specifically:</p>
+<p>Now that the Administrative Requirements are out of the way (phew!), the rest of the post will focus on the security and privacy aspect of HIPAA under <strong>45 CFR Part 164</strong>, specifically [<code>27</code>]:</p>
 <ul>
 <li>Subpart C: Security Standards for the Protection of Electronic Protected Health Information (Security Rule)</li>
 <li>Subpart D: Notification in the Case of Breach of Unsecured Protected Health Information (Breach Notification Rule)</li>
 <li>Subpart E: Privacy of Individually Identifiable Health Information (Privacy Rule)</li>
 </ul>
+<p>These subparts highlight the technical requirements for the Security Rule, Breach Notification Rule, and Privacy Rule.</p>
+<h3 id="privacy-rule">Privacy Rule</h3>
+<p>Although the Security Rule comes first in the 45 CFR, it is important to understand which information are considered protected health information and thus must be protected by the HIPAA.</p>
+<p>The <em>Privacy of Individually Identifiable Health Information</em> or the Privacy Rule, issued by the HHS, sets the national standards for the protection of certain health information [<code>29</code>]. This Rule ensures the protection of individual&rsquo;s health information while permitting the flow of necessary information, promoting high quality health care and protecting the public&rsquo;s health and well-being [<code>29</code>].</p>
+<p>HHS&rsquo; OCR is responsible for the implementation and enforcement of the Privacy Rule (and Security Rule) with voluntary compliance activities and civil monetary penalties [<code>29</code>].</p>
+<p>The HHS released a summary of the Privacy Rule that can be used as a reference: <a href="https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/understanding/summary/privacysummary.pdf"><code>SUMARY OF THE HIPAA PRIVACY RULE</code></a>.</p>
+<h4 id="patient-information-protection">Patient Information Protection</h4>
+<p>The Privacy Rule protects <em>any individually identifiable health information</em> or PHI that is transmitted and maintained by the covered entities and its BAs in any form (electronic and other mediums), with certain exceptions [<code>28</code>]:</p>
+<ul>
+<li>In education records covered by the Family Educational Rights and Privacy Act, as amended, 20 U.S.C. 1232g;</li>
+<li>In records described at 20 U.S.C. 1232g(a)(4)(B)(iv);</li>
+<li>In employment records held by a covered entity in its role as employer; and</li>
+<li>Regarding a person who has been deceased for more than 50 years.</li>
+</ul>
+<p>Specifically, information created or received by covered entities, public health authority, employer, life insurer, and school or university; including the following [<code>29</code>]:</p>
+<ul>
+<li>Past, present, or future physical or mental health or condition of an individual;</li>
+<li>The provision of health care to an individual;</li>
+<li>Past, present, or future for the provision of health care to an individual;</li>
+<li>Genetic health information <a href="https://www.law.cornell.edu/cfr/text/45/160.103">(<code>45 CFR § 160.103</code>)</a>; or</li>
+<li>Information traceable to a patient by one or more of the HIPAA 18 identifiers</li>
+</ul>
+<p>The HHS lists 18 identifiers that can potentially identify, contact, or locate an individual [<code>30</code>]:</p>
+<ol>
+<li>Names;</li>
+<li>All geographical subdivisions smaller than a state;</li>
+<li>All elements of dates, except year, directly related to an individual;</li>
+<li>Phone numbers;</li>
+<li>Fax numbers;</li>
+<li>Electronic mail addresses;</li>
+<li>Social security numbers (SSN);</li>
+<li>Medical record numbers (MRN);</li>
+<li>Health plan beneficiary numbers;</li>
+<li>Account numbers;</li>
+<li>Certificate or license numbers;</li>
+<li>Vehicle identifiers and serial numbers, including license plate numbers;</li>
+<li>Device identifiers and serial numbers;</li>
+<li>Web Universal Resource Locators (URLs);</li>
+<li>Internet Protocol (IP) address numbers;</li>
+<li>Biometric identifiers, including finger and voice prints;</li>
+<li>Full face photographic images and any comparable images; and</li>
+<li>Any other unique identifying number, characteristic, or code</li>
+</ol>
+<h4 id="de-identified-health-information">De-identified Health Information</h4>
+<p>A <strong>De-identified Health Information</strong> is a health information that does not identify and cannot be used to identify an individual [<code>31</code>]. 45 CFR § 164.514(b) outlines two methods a covered entity can use to determine whether a PHI is de-identified [<code>31</code>]:</p>
+<ol>
+<li>
+<p>Expert Determination</p>
+<p>Where a person with the appropriate knowledge of and experience with accepted statistical and scientific principles and methods, or an expert, determines that the risk is <em>very small</em> that the health information alone or in combination with other information can be used to identify an individual; and documents the methods and results of the analysis to justify the determination.</p>
+</li>
+<li>
+<p>Safe Harbor</p>
+<p>Where the 18 HIPAA Identifiers (listed above) of the individual, or of relatives, employers, or household members of the individual are removed; and the covered entity does not have actual knowledge that the information could be used alone or in combination with other information to identify an individual.</p>
+</li>
+</ol>
+<p>45 CFR § 164.514(c) outlines the method covered entities can implement to re-identify the information, specifically by assigning a code or other record identification, provided that [<code>31</code>]:</p>
+<ol>
+<li>[Deviation] the code or other record identification was not derived from or related to the information of the individual, and cannot be translated to identify an individual &ndash; basically think of the best practices when implementing a cookie in your web applications; and</li>
+<li>[Security] the covered entity does not use or disclose the code or other record identification for other purposes beside to re-identify the information, and does not disclose the mechanism for re-identification.</li>
+</ol>
+<h4 id="permitted-use-and-disclosure">Permitted Use and Disclosure</h4>
+<h3 id="security-rule">Security Rule</h3>
+<p>The <strong>Security Rule</strong> requires that covered entities and BAs must ensure the confidentiality, integrity, and availability (CIA) of all electronic protected health information (e-PHI) they create, receive, maintain, or transmit [<code>28</code>]. Furthermore, this Rule requires that the covered entities and BAs protect the integrity or security of the e-PHI against any reasonable anticipated threats, and misuse or unauthohrized disclosures [<code>28</code>]. Lastly, ensure the compliance of their workforce with this Rule [<code>28</code>].</p>
 <h1 id="references">References</h1>
 <ol>
 <li>CDC, Health Insurance Portability and Accountability Act of 1996 (HIPAA), cdc.gov, <a href="https://www.cdc.gov/phlp/php/resources/health-insurance-portability-and-accountability-act-of-1996-hipaa.html">https://www.cdc.gov/phlp/php/resources/health-insurance-portability-and-accountability-act-of-1996-hipaa.html</a> (accessed November 02, 2024)</li>
@@ -247,6 +307,7 @@
 <li>Cornell Law School, Health care provider, law.cornell.edu, <a href="https://www.law.cornell.edu/definitions/index.php?width=840&amp;height=800&amp;iframe=true&amp;def_id=808782b490d63d2744ee5d9a1336d988&amp;term_occur=999&amp;term_src=Title:45:Chapter:A:Subchapter:C:Part:160:Subpart:A:160.103">https://www.law.cornell.edu/definitions/index.php?width=840&amp;height=800&amp;iframe=true&amp;def_id=808782b490d63d2744ee5d9a1336d988&amp;term_occur=999&amp;term_src=Title:45:Chapter:A:Subchapter:C:Part:160:Subpart:A:160.103</a> (accessed November 03, 2024)</li>
 <li>Cornell Law School, Health care clearinghouse, law.cornell.edu, <a href="https://www.law.cornell.edu/definitions/index.php?width=840&amp;height=800&amp;iframe=true&amp;def_id=8b76bcc5b120eabe975323d7896f0cf3&amp;term_occur=999&amp;term_src=Title:45:Chapter:A:Subchapter:C:Part:160:Subpart:A:160.103">https://www.law.cornell.edu/definitions/index.php?width=840&amp;height=800&amp;iframe=true&amp;def_id=8b76bcc5b120eabe975323d7896f0cf3&amp;term_occur=999&amp;term_src=Title:45:Chapter:A:Subchapter:C:Part:160:Subpart:A:160.103</a> (accessed November 03, 2024)</li>
 <li>Cornell Law School, 45 CFR § 160.103 - Definitions, law.cornell.edu, <a href="https://www.law.cornell.edu/cfr/text/45/160.103">https://www.law.cornell.edu/cfr/text/45/160.103</a> (accessed November 03, 2024)</li>
+<li>P.F. Edemekong, et. al., Health Insurance Portability and Accountability Act, National Library of Medicine, <a href="https://www.ncbi.nlm.nih.gov/books/NBK500019/">https://www.ncbi.nlm.nih.gov/books/NBK500019/</a> (accessed November 14, 2024)</li>
 <li>Cornell Law School, 45 CFR Part 162 - PART 162—ADMINISTRATIVE REQUIREMENTS, law.cornell.edu, <a href="https://www.law.cornell.edu/cfr/text/45/part-162">https://www.law.cornell.edu/cfr/text/45/part-162</a> (accessed November 08, 2024)</li>
 <li>Centers for Medicare &amp; Medicaid Services, Enforcement and Compliance, cms.gov, <a href="https://www.cms.gov/priorities/key-initiatives/burden-reduction/administrative-simplification/enforcement">https://www.cms.gov/priorities/key-initiatives/burden-reduction/administrative-simplification/enforcement</a> (accessed November 08. 2024)</li>
 <li>Centers for Medicare &amp; Medicaid Services, Transactions Overview, cms.gov, <a href="https://www.cms.gov/priorities/key-initiatives/burden-reduction/administrative-simplification/transactions">https://www.cms.gov/priorities/key-initiatives/burden-reduction/administrative-simplification/transactions</a> (accessed November 08. 2024)</li>
@@ -254,8 +315,11 @@
 <li>Centers for Medicare &amp; Medicaid Services, Adopted Standards and Operating Rules. cms.gov, <a href="https://www.cms.gov/priorities/key-initiatives/burden-reduction/">https://www.cms.gov/priorities/key-initiatives/burden-reduction/</a> (accessed November 08. 2024)</li>
 <li>Centers for Medicare &amp; Medicaid Services, Code Sets Basics, cms.gov, <a href="https://www.cms.gov/files/document/code-sets.pdf">https://www.cms.gov/files/document/code-sets.pdf</a> (accessed November 08. 2024)</li>
 <li>Centers for Medicare &amp; Medicaid Services, Unique Identifiers, cms.gov, <a href="https://www.cms.gov/priorities/key-initiatives/burden-reduction/administrative-simplification/unique-identifiers">https://www.cms.gov/priorities/key-initiatives/burden-reduction/administrative-simplification/unique-identifiers</a> (accessed November 08. 2024)</li>
-<li>Centers for Medicare &amp; Medicaid Services, Operating Rules Overview, cms.gov, <a href="https://www.cms.gov/priorities/key-initiatives/burden-reduction/administrative-simplification/operating-rules">https://www.cms.gov/priorities/key-initiatives/burden-reduction/administrative-simplification/operating-rules</a> (accessed November 08. 2024)</li>
 <li>Cornell Law School, 45 CFR Part 164 - PART 164—SECURITY AND PRIVACY, law.cornell.edu, <a href="https://www.law.cornell.edu/cfr/text/45/part-164">https://www.law.cornell.edu/cfr/text/45/part-164</a> (accessed November 08, 2024)</li>
+<li>Cornell Law School, Protected health information, law.cornell.edu, <a href="https://www.law.cornell.edu/definitions/index.php?width=840&amp;height=800&amp;iframe=true&amp;def_id=7383a4ae647bf28b2388260d0de8b4ef&amp;term_occur=999&amp;term_src=Title:45:Chapter:A:Subchapter:C:Part:164:Subpart:E:164.502">https://www.law.cornell.edu/definitions/index.php?width=840&amp;height=800&amp;iframe=true&amp;def_id=7383a4ae647bf28b2388260d0de8b4ef&amp;term_occur=999&amp;term_src=Title:45:Chapter:A:Subchapter:C:Part:164:Subpart:E:164.502</a> (accessed November 16, 2024)</li>
+<li><a href="https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/understanding/summary/privacysummary.pdf">https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/understanding/summary/privacysummary.pdf</a></li>
+<li><a href="https://biospecimens.cancer.gov/resources/sops/docs/GTEx_SOPs/BBRB-ER-0001-F1%20List%20of%20HIPAA%20Identifiers.pdf">https://biospecimens.cancer.gov/resources/sops/docs/GTEx_SOPs/BBRB-ER-0001-F1%20List%20of%20HIPAA%20Identifiers.pdf</a>
+3-. Cornell Law School, 45 CFR § 164.306 - Security standards: General rules., law.cornell.edu, <a href="https://www.law.cornell.edu/cfr/text/45/164.306">https://www.law.cornell.edu/cfr/text/45/164.306</a> (accessed November 16, 2024)</li>
 </ol>
 
     </div>
@@ -269,7 +333,7 @@
         
     <h1 class="sidebar-title">UncleSocks&#39; CyBlog</h1>    
     
-        <p class="sidebar-description">A personal blog documenting my cybersecurity journey.</p>
+        <p class="sidebar-description">My personal blog documenting my cybersecurity journey.</p>
     
     
 
