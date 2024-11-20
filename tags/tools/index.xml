@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Network on CyBlog</title>
-    <link>http://localhost:1313/tags/network/</link>
-    <description>Recent content in Network on CyBlog</description>
+    <title>Tools on CyBlog</title>
+    <link>http://localhost:1313/tags/tools/</link>
+    <description>Recent content in Tools on CyBlog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 20 Nov 2024 21:10:41 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/network/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pixie Lite PS: A Lightweight PowerShell AbuseIPDB Bulk Address Check Script</title>
       <link>http://localhost:1313/posts/pixie-powershell/</link>
       <pubDate>Wed, 20 Nov 2024 21:10:41 +0800</pubDate>
       <guid>http://localhost:1313/posts/pixie-powershell/</guid>
       <description>&lt;p&gt;When I was working as an L1 SOC Analyst at an Australian Managed Service Provider (MSP), one of the challenges I encountered was manually researching large volumes of IP addresses to gather their geographic location and ISP details. This was necessary to identify IP addresses to which internal hosts were connecting that were not part of the validated list. For this reason, I decided to practice my Python script to automate this task. Originally, I leveraged IPInfo&amp;rsquo;s API capability to automatically pull the IP geolocation, company, and hostname informaition of bulk IP addresses, which simply displays the parsed data to the CLI using the &lt;code&gt;IP_ADDRESS[COUNTRY:COMPANY:HOSTNAME]&lt;/code&gt; format. Overtime, the need to also include IP address reputation in a readable format arose. The Pixie Lite for Abuse IP DB was then born, which accepts a &lt;code&gt;.txt&lt;/code&gt; file, communicates using Abuse IP DB API to capture the county code, ISP, abuse confidence score, total reports, and last report of each IP address, then exports the parsed data into a &lt;code&gt;.csv&lt;/code&gt; file.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Overcoming IPv4 Private Address Overlaps in Large Business-to-Business Network Scenarios with Virtual Routing and Address Translations Using RFC 6598 Shared Address Space</title>
-      <link>http://localhost:1313/posts/nat-rfc6598/</link>
-      <pubDate>Mon, 05 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/nat-rfc6598/</guid>
-      <description>&lt;p&gt;This was our final Networking report paper during my master&amp;rsquo;s degree in Information Security (InfoSec) that we did not try to publish. The topic and initial router configurations were presented by my group mate, E.C. However, I had to make some changes to the provided router configurations and network architecture to remediate the issues we faced in the lab. I deployed the lab environment and revised router configuration using GNS3, then wrote our report paper, which you see now below. I decided to post this in my personal blog since there are limited resources out there relating to this topic and the hope that this will fill in certain knowledge gaps. As a matter fact, I had troubles researching and understanding certain concepts because of this limitation.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

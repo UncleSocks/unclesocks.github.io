@@ -6,8 +6,15 @@
     <description>Recent content on CyBlog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 02 Nov 2024 22:30:52 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 20 Nov 2024 21:10:41 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pixie Lite PS: A Lightweight PowerShell AbuseIPDB Bulk Address Check Script</title>
+      <link>http://localhost:1313/posts/pixie-powershell/</link>
+      <pubDate>Wed, 20 Nov 2024 21:10:41 +0800</pubDate>
+      <guid>http://localhost:1313/posts/pixie-powershell/</guid>
+      <description>&lt;p&gt;Pixie Lite PowerShell (PS) is a lightweight PS script designed to aid security analyst to look up bulk IP addresses against Abuse IP DB database using its APIv2. The script is only 92 lines long and 2.15 KB in size. This iteration of Pixie was developed to eliminate the need to install anything in Windows environments.&lt;/p&gt;&#xA;&lt;p&gt;Get the PS script at: &lt;strong&gt;&lt;a href=&#34;https://github.com/UncleSocks/pixie-defenders-automated-ip-address-workflow/blob/main/Pixie%20Powershell/pixie.ps1&#34;&gt;&lt;code&gt;https://github.com/UncleSocks/pixie-defenders-automated-ip-address-workflow/blob/main/Pixie%20Powershell/pixie.ps1&lt;/code&gt;&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;before-the-powershell-script&#34;&gt;Before the PowerShell Script&lt;/h2&gt;&#xA;&lt;p&gt;When I was working as an L1 SOC Analyst at an Australian Managed Service Provider (MSP), one of the challenges I encountered was manually researching large volumes of IP addresses to gather their geographic location and ISP details. This was necessary to identify IP addresses to which internal hosts were connecting to that were not part of the validated list.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Connecting Information Security and the U.S. Healthcare: An Information Security Professional&#39;s Detailed Guide and Review to the Health Insurance Portability and Accountability Act (HIPAA) of 1996, Title II - Administrative Simplification</title>
       <link>http://localhost:1313/posts/hipaa/</link>

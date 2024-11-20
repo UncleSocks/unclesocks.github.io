@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pixie Lite PS: A Lightweight PowerShell AbuseIPDB Bulk Address Check Script | CyBlog</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+</head>
+<body>
+  <header>
+    <header>
+    <nav>
+  <ul class="main-menu">
+    <li>
+      <a href="/">Home</a>
+    </li>
+    
+    <li>
+      <a href="/posts/">Posts</a>
+    </li>
+    
+    <li>
+      <a href="/tags/">Tags</a>
+    </li>
+    
+    <li>
+      <a href="/about/">About</a>
+    </li>
+    
+  </ul>
+</nav>
+</header>
+  </header>
+  <main>
+    <div class="container">
+      <div class="content">
+        
+  
+  
+    <h1 class="post-title">Pixie Lite PS: A Lightweight PowerShell AbuseIPDB Bulk Address Check Script</h1>
+
+    
+    
+    <div class="post-meta">
+      <time datetime="2024-11-20T21:10:41&#43;08:00" class="post-time">November 20, 2024</time> 
+       
+        <span class="post-author">◗ Tyrone Kevin Ilisan</span>
+      
+    </div>
+
+    <div class="post-content">
+      <p>Pixie Lite PowerShell (PS) is a lightweight PS script designed to aid security analyst to look up bulk IP addresses against Abuse IP DB database using its APIv2. The script is only 92 lines long and 2.15 KB in size. This iteration of Pixie was developed to eliminate the need to install anything in Windows environments.</p>
+<p>Get the PS script at: <strong><a href="https://github.com/UncleSocks/pixie-defenders-automated-ip-address-workflow/blob/main/Pixie%20Powershell/pixie.ps1"><code>https://github.com/UncleSocks/pixie-defenders-automated-ip-address-workflow/blob/main/Pixie%20Powershell/pixie.ps1</code></a></strong></p>
+<h2 id="before-the-powershell-script">Before the PowerShell Script</h2>
+<p>When I was working as an L1 SOC Analyst at an Australian Managed Service Provider (MSP), one of the challenges I encountered was manually researching large volumes of IP addresses to gather their geographic location and ISP details. This was necessary to identify IP addresses to which internal hosts were connecting to that were not part of the validated list.</p>
+<p>For this reason, I decided to practice my Python script to automate the task. Originally, I leveraged IPInfo&rsquo;s API capability to automatically pull the IP geolocation, company, and hostname informaition of bulk IP addresses, which simply displays the parsed data to the CLI using the <code>IP_ADDRESS[COUNTRY:COMPANY:HOSTNAME]</code> format. I named this tool <strong>Pixie</strong>, after our Mini Pinscher, since this was my first tool and its feature is fairly straightforward (mini). Overtime, the need to also include IP address reputation in a readable format arose. The Pixie Lite for Abuse IP DB was then born, which accepts a <code>.txt</code> file, communicates using Abuse IP DB API to capture the county code, ISP, abuse confidence score, total reports, and last reported date of each IP address, then exports the parsed data into a <code>.csv</code> file. The tool was eventually used by my organization to automate monthly IP address reputation reports &ndash; this made me very proud.</p>
+<h2 id="developing-the-powershell-script">Developing the PowerShell Script</h2>
+<p>Pixie has multiple Python 3 variants, including a feature to filter based on the company and an additional IP Cisco Talos blocklist check. I will have to refactor and update the Python codes first before writing a blog post about it. For now, this post will focus on the PS version, which is essentially a rewritten <strong>Pixie Lite for Abuse IP DB</strong> Python script. Similar with the Python version, it accepts a <code>.txt</code> file, which should contain <strong>one IP address <em>per</em> line</strong>, then exports the parsed data to a <code>.csv</code> file.</p>
+<h3 id="global-parameters-and-initial-setup">Global Parameters and Initial Setup</h3>
+<p>The script will require three arguments: ApiKey, FilePath, and OutputPath. The ApiKey is the Abuse IP DB APIv2 Key. The FilePath is the file location of the input <code>.txt</code> file, and the OutputPath is the CSV file location.</p>
+<pre tabindex="0"><code>param([string]$ApiKey, 
+      [string]$FilePath, 
+      [string]$OutputPath
+)
+</code></pre><p>As part of our initial setup, we will create a blank array, where we will append each processed (parsed) IP address. Then, we will gather the contents of the <code>.txt</code> input file.</p>
+<pre tabindex="0"><code>    $processedIpArray = @()
+    $fileContent = Get-Content -Path $FilePath
+</code></pre><h3 id="connecting-with-abuse-ip-db-apiv2">Connecting with Abuse IP DB APIv2</h3>
+<p>The PS script uses Abuse IP DB&rsquo;s APIv2 but we need to specify the HTTP parameters: URI, Method, Headers, and Body (Query) [<code>1</code>]. The script sends a GET request to <code>https://api.abuseipdb.com/api/v2/check</code> with the API key as the authentication, while specifying the accepted format to be JSON. The script will then query each IP address from the <code>.txt</code> file using a For-Loop.</p>
+<pre tabindex="0"><code>$headers = @{
+    &#39;Key&#39; = $ApiKey
+    &#39;Accept&#39; = &#39;application/json&#39;
+}
+
+    $body = @{
+                &#39;ipAddress&#39; = $line
+                &#39;maxAgeInDays&#39; = &#39;90&#39;
+            }
+
+            $Params = @{
+                Uri = &#39;https://api.abuseipdb.com/api/v2/check&#39;
+                Method = &#39;GET&#39;
+                Headers = $headers
+                Body = $body
+            }
+</code></pre><p>We can now pass these parameters using the <code>Invoke-RestMethod</code> cmdlet, which we will look at in the next subsection.</p>
+<h3 id="powershell-script-logic">PowerShell Script Logic</h3>
+<p>The script loops through the specified <code>.txt</code> file and uses the <code>Invoke-RestMethod</code> cmdlet to GET the details of each IP address from the Abuse IP DB database. This is then converted to JSON, allowing us to parse the needed information easily later.</p>
+<pre tabindex="0"><code>    $lookup = Invoke-RestMethod @Params
+    $lookupParsed = $lookup | ConvertTo-Json
+</code></pre><p>The script will first check whether the IP address is public. If so, it extracts and parses the country code, ISP, domain, abuse confidence score, total reports, and last reported date from the JSON response. However, if the IP address is not public, the script set the country code as <code>PRIVATE</code> and the rest of the columns as <code>N/A</code> explicitly.</p>
+<pre tabindex="0"><code>if ($isPublic -eq $true) {
+          
+          try {
+            $countryCode = $lookup.data.countryCode
+          } catch {
+            $countryCode = &#39;N/A&#39;
+          }   
+          
+          try {
+            $isp = $lookup.data.isp
+          } catch {
+            $isp = &#39;N/A&#39;
+          }
+
+          try {
+            $domain = $lookup.data.domain
+          } catch {
+            $domain = &#39;N/A&#39;
+          }
+
+          $abuseConfidenceScore = $lookup.data.abuseConfidenceScore
+          $totalReports = $lookup.data.totalReports
+          $lastReportedAt = $lookup.data.lastReportedAt
+
+        } else {
+
+            $countryCode = &#39;N/A&#39;
+            $isp = &#39;PRIVATE&#39;
+            $abuseConfidenceScore = &#39;N/A&#39;
+            $totalReports = &#39;N/A&#39;
+            $lastReportedAt = &#39;N/A&#39;
+        }
+</code></pre><p>When parsing the JSON response, we can access each child value by specifying the key term, separated by a period (.).</p>
+<h3 id="exporting-to-a-csv-file">Exporting to a CSV File</h3>
+<p>Before the script can generate a CSV file, it will first create an array of <code>PSCustomObject</code> to represent a collection of items. This effectively creates the columns and the headers of the CSV file, while specifying which function to append on each column.</p>
+<pre tabindex="0"><code>        $processedIp = [PSCustomObject]@{
+            &#39;IP Address&#39; = $ipAddress
+            &#39;Country Code&#39; = $countryCode
+            &#39;ISP&#39; = $isp
+            &#39;Domain&#39; = $domain
+            &#39;Abuse Confidence Score (%)&#39; = $abuseConfidenceScore
+            &#39;Total Reports&#39; = $totalReports
+            &#39;Last Reported At&#39; = $lastReportedAt
+        }
+
+        $processedIpArray += $processedIp
+</code></pre><p>Next, the script will append each processed IP address to the <code>$processedIpArray</code> array that we previously created. Then it uses the <code>Export-Csv</code> cmdlet to generate a CSV file to the specified <code>$OutputPath</code> based on the <code>$processedIpArray</code> array. The <code>-NoTypeInformation</code> will remove any unncessary metadata from the CSV contents.</p>
+<pre tabindex="0"><code>$processedIpArray | Export-Csv $OutputPath -Encoding UTF8 -NoTypeInformation
+</code></pre><h2 id="powershell-script-usage">PowerShell Script Usage</h2>
+<p>To use the Pixie PS script, simply execute the <code>pixie.ps1</code> script and specify the API key, input text file location, and output CSV file location, for example:</p>
+<pre tabindex="0"><code>pixie.ps1 -ApiKey &#34;123456789&#34; -FileLocation &#34;C:\Users\Pixie\Documents\ip.txt&#34; -OutputPath &#34;C:\Users\Pixie\Documents\output.csv&#34;
+</code></pre><p>After the script is finished running, it should generate a CSV file on the specified <code>-OutputPath</code> location, which would look like in Fig. 1 below.</p>
+<p><img src="../../pixie-powershell/pixie-ps-sample.png" alt="Sample CSV Output">
+<em>Fig. 1. Sample Pixie PowerShell CSV Output</em></p>
+<h1 id="reference">Reference</h1>
+<ol>
+<li>Microsoft, Invoke-RestMethod, -Body, microsoft.com, <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-restmethod?view=powershell-7.4">https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-restmethod?view=powershell-7.4</a> (accessed November 20, 2024)</li>
+</ol>
+
+    </div>
+    
+  <div>
+    <div>Tags:</div>
+    <ul>
+        <a href="/tags/tools/">Tools</a>
+        , 
+        <a href="/tags/powershell/">PowerShell</a>
+        , 
+        <a href="/tags/network/">Network</a>
+        
+    </ul>
+  </div>
+
+
+  
+
+      </div>
+      <div class="sidebar">
+        
+    <h1 class="sidebar-title">UncleSocks&#39; CyBlog</h1>    
+    
+        <p class="sidebar-description">My personal blog documenting my cybersecurity journey.</p>
+    
+    
+
+
+
+<ul class="sidebar-links">
+    
+    <li>
+        <a href="https://www.linkedin.com/in/tyrone-kevin-ilisan-ece/" rel="me" aria-label="" title="">
+            <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+        </a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="https://github.com/UncleSocks" rel="me" aria-label="" title="">
+            <i class="fa-brands fa-github" aria-hidden="true"></i>
+        </a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="https://www.youtube.com/@unclesocks546" rel="me" aria-label="" title="">
+            <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+        </a>&nbsp;
+    </li>
+    
+</ul>
+
+<p>--</p>
+      </div>
+    </div>
+  </main>
+  <footer>
+    
+    <footer>
+        <p class="copyright">Made using Hugo and the Waffles theme.</p>
+    </footer>    
+
+  </footer>
+</body>
+</html>
