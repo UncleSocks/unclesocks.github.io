@@ -70,7 +70,7 @@
 <pre tabindex="0"><code>    $processedIpArray = @()
     $fileContent = Get-Content -Path $FilePath
 </code></pre><h3 id="connecting-with-abuse-ip-db-apiv2">Connecting with Abuse IP DB APIv2</h3>
-<p>The PS script uses Abuse IP DB&rsquo;s APIv2 but we need to specify the HTTP parameters: URI, Method, Headers, and Body (Query) [<code>1</code>]. The script sends a GET request to <code>https://api.abuseipdb.com/api/v2/check</code> with the API key as the authentication, while specifying the accepted format to be JSON. The script will then query each IP address from the <code>.txt</code> file using a For-Loop.</p>
+<p>The PS script uses Abuse IP DB&rsquo;s APIv2 but we need to specify the HTTP parameters: URI, Method, Headers, and Body (Query) [<code>1</code>]. The script sends a GET request to <code>https://api.abuseipdb.com/api/v2/check</code> with the API key as the authentication, while specifying the accepted format to be JSON [<code>2</code>]. The script will then query each IP address from the <code>.txt</code> file using a For-Loop.</p>
 <pre tabindex="0"><code>$headers = @{
     &#39;Key&#39; = $ApiKey
     &#39;Accept&#39; = &#39;application/json&#39;
@@ -127,7 +127,7 @@
         }
 </code></pre><p>When parsing the JSON response, we can access each child value by specifying the key term, separated by a period (.).</p>
 <h3 id="exporting-to-a-csv-file">Exporting to a CSV File</h3>
-<p>Before the script can generate a CSV file, it will first create an array of <code>PSCustomObject</code> to represent a collection of items. This effectively creates the columns and the headers of the CSV file, while specifying which function to append on each column.</p>
+<p>Before the script can generate a CSV file, it will first create an array of <code>PSCustomObject</code> to represent a collection of key/value pairs, which is useful when using the <code>Export-Csv</code> cmdlet [<code>3</code>]. This effectively creates the columns and the headers of the CSV file, while specifying which function to append on each column.</p>
 <pre tabindex="0"><code>        $processedIp = [PSCustomObject]@{
             &#39;IP Address&#39; = $ipAddress
             &#39;Country Code&#39; = $countryCode
@@ -147,9 +147,12 @@
 </code></pre><p>After the script is finished running, it should generate a CSV file on the specified <code>-OutputPath</code> location, which would look like in Fig. 1 below.</p>
 <p><img src="../../pixie-powershell/pixie-ps-sample.png" alt="Sample CSV Output">
 <em>Fig. 1. Sample Pixie PowerShell CSV Output</em></p>
+<p>I hope you learn something useful from this blog post, and of course, I also hope that this tool helps make SOC analysts&rsquo; work a little bit easier.</p>
 <h1 id="reference">Reference</h1>
 <ol>
 <li>Microsoft, Invoke-RestMethod, -Body, microsoft.com, <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-restmethod?view=powershell-7.4">https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-restmethod?view=powershell-7.4</a> (accessed November 20, 2024)</li>
+<li>AbuseIPDB, CHECK Endpoint, abuseipdb.com, <a href="https://docs.abuseipdb.com/#introduction">https://docs.abuseipdb.com/#introduction</a> (accessed November 20, 2024)</li>
+<li>Microsoft, Everything you wanted to know about PSCustomObject,  microsoft.com, <a href="https://learn.microsoft.com/en-us/powershell/scripting/learn/deep-dives/everything-about-pscustomobject?view=powershell-7.4">https://learn.microsoft.com/en-us/powershell/scripting/learn/deep-dives/everything-about-pscustomobject?view=powershell-7.4</a> (accessed November 20, 2024)</li>
 </ol>
 
     </div>
